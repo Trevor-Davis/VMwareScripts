@@ -13,17 +13,20 @@ $network = "NestedLab" #the network to deploy the vCenter server
 $datastore = "vsanDatastore" #the datastore where vCenter will be deployed
 $datacenter = "SDDC-Datacenter" #the name of the datacenter where this vCenter VM will be deployed
 $cluster = "Cluster-1" #The cluster where the nested vCenter will be deployed
-$nestedvcenterdeploymentsize = "tiny" 
+$nestedvcenterdeploymentsize = "tiny" #this is typically good for nested environments
 $nestedvcentername = "vcenter2"
+$nestedvcenterrootpassword = "Microsoft1!"
+$nestedvcentersso = "vsphere.local" #HIGHLY RECOMMENDED to not change this
+$nestedvcenterpassword = "Microsoft1!"
+
+#the following are the IP configurations for the nested vCenter
 $nestedvcenterip = "192.168.89.77"
 $nestedvcenterprefix = "24"
 $nestedvcentergateway = "192.168.89.1"
 $nestedvcenterntpserver = "time.nist.gov"
 $nestedvcenterdnsserver = "10.20.0.4"
-$nestedvcenterrootpassword = "Microsoft1!"
-$nestedvcentersso = "vsphere.local" #HIGHLY RECOMMENDED to not change this
-$nestedvcenterpassword = "Microsoft1!"
 
+# DO NOT MODIFY BELOW THIS LINE
 
 $config = (Get-Content -Raw "$($pathtovcenterinstaller)\vcsa-cli-installer\templates\install\embedded_vCSA_on_VC.json") | convertfrom-json
 
